@@ -1,14 +1,39 @@
-\documentclass[a4paper,oneside,12pt]{ctexrep}
+\documentclass[UTF8, zihao = -4, linespread = 1.25]{ctexart}
+\usepackage[heading = true]{ctex}
+\ctexset{
+  name = {结论, 附录},
+  numbering = {false}
+  %section = {},
+  %subsection = {},
+  %subsubsection = {}
+}
 \usepackage{pdfpages, titlesec}
-\markboth{济南大学毕业设计}{济南大学毕业设计}
+\usepackage[a4paper,left=3cm,right=2.5cm,top=2.5cm,bottom=2cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand\headrulewidth{1.5pt}
+\renewcommand\footrulewidth{1.5pt}
+\setlength{\voffset}{-10mm}                        
+\setlength{\topmargin}{0mm}
+\setlength{\headheight}{5mm}
+\setlength{\headsep}{5mm}
+\setlength{\footskip}{10mm}
+\chead{济南大学毕业设计}
 \begin{document}
-\includepdf[pages=-]{docs/01-cover.pdf}  
+\includepdf[pages=-]{docs/01-cover.pdf}
 
+\pagenumbering{Roman}
 
 \include{chapter/ch2-basic/abstract-cn.tex}
 \include{chapter/ch2-basic/abstract-en.tex}
 \include{chapter/ch2-basic/content.tex}
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
 \include{chapter/ch2-basic/body.tex}
+
+%\setcounter{secnumdepth}{0}
 \include{chapter/ch2-basic/conclusion.tex}
 \include{chapter/ch2-basic/reference.tex}
 \include{chapter/ch2-basic/thanks.tex}
