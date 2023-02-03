@@ -1,16 +1,37 @@
-\usepackage{pdfpages, hyperref} % 页面间距
-\usepackage[a4paper,left=3cm,right=2.5cm,top=2.5cm,bottom=2cm]{geometry}
-%\usepackage{titlesec}
+\usepackage{pdfpages, setspace, graphicx}
+\usepackage[a4paper, top = 2.5cm, bottom = 2.5cm, left = 3cm, right = 2.5cm, showframe]{geometry}
 
-\usepackage{fontspec} % 英文字体
-\setmainfont{Times New Roman}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}[BoldFont = *-Bold]
 
-\usepackage{fancyhdr} % 全局页眉和边缘线
+\usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhead{}
-\renewcommand\headrulewidth{1.5pt}
-\renewcommand\footrulewidth{1.5pt}
-\chead{济南大学毕业设计}
+\chead{\small{济南大学毕业设计}\fontsize{2pt}{7pt}\selectfont{\\ \quad}}
+\renewcommand\headrulewidth{1.6pt}
+\renewcommand\footrulewidth{1.6pt}
+
+\usepackage{titletoc}
+\titlecontents{section}
+	[1em]
+	{\normalsize\vspace{0em}}
+	{\contentslabel{1em}}
+	{\hspace*{-1em}}
+	{~\titlerule*[0.4pc]{.}~\contentspage}
+\titlecontents{subsection}
+	[4em]
+	{\normalsize\vspace{0em}}
+	{\contentslabel{2em}}
+	{\hspace*{0em}}
+	{~\titlerule*[0.4pc]{.}~\contentspage}
+\titlecontents{subsubsection}
+	[6.5em]
+	{\normalsize\vspace{0em}}
+	{\contentslabel{2.5em}}
+	{\hspace*{0em}}
+	{~\titlerule*[0.4pc]{.}~\contentspage}
+
+\renewcommand{\contentsname}{\small{\quad\\ \quad\\ }\large{目\qquad 录\\}}
 
 \ctexset{
 	section/aftername = {\enspace},
@@ -18,35 +39,68 @@
 	subsubsection/aftername = {\enspace}
 }
 
-\usepackage{titletoc} % 目录格式设置
-\titlecontents{section}
-[1em]{\normalsize\vspace{0em}}{\contentslabel{1em}}{\hspace*{-1em}}{~\titlerule*[0.4pc]{.}~\contentspage}
-\titlecontents{subsection}
-[4em]{\normalsize\vspace{0em}}{\contentslabel{2em}}{\hspace*{0em}}{~\titlerule*[0.4pc]{.}~\contentspage}
-\titlecontents{subsubsection}
-[6.5em]{\normalsize\vspace{0em}}{\contentslabel{2.5em}}{\hspace*{0em}}{~\titlerule*[0.4pc]{.}~\contentspage}
-
-\renewcommand{\contentsname}{\textbf{\zihao{4}目\qquad 录}}
-
-
 \fancypagestyle{ujnabstract} % 定义中文摘要格式
 {
+	\setlength{\voffset}{-10mm}
+	\setlength{\topmargin}{0mm}
+	\setlength{\headheight}{5mm}
+	\setlength{\headsep}{5mm}
+	\setlength{\footskip}{10mm}
+
+	\ctexset{
+		section/format = {\large\heiti\centering}
+	}
 	\pagenumbering{Roman} % 罗马数字页码
 	\fancyfoot[C]{- \thepage{} -} % 页码居中左右两杠
+
+	\newcommand\cnkeywords[1]{\\ \quad\small{\bfseries{\\ 关键词:}} ##1}
 }
+
 \fancypagestyle{ujnabstract*} % 定义英文摘要格式
 {
-	\pagenumbering{Roman} % 罗马数字页码
+	\setlength{\voffset}{-10mm}
+	\setlength{\topmargin}{0mm}
+	\setlength{\headheight}{5mm}
+	\setlength{\headsep}{5mm}
+	\setlength{\footskip}{10mm}
+
+	\ctexset{
+		section/format = {\large\centering\bfseries}
+	} % 标题格式
 	\fancyfoot[C]{- \thepage{} -} % 页码居中左右两杠
+
+	\newcommand\enkeywords[1]{\\ \quad\small{\bfseries{\\ Key words:}} ##1}
 }
+
 \fancypagestyle{ujncontent} % 定义目录格式
 {
+	\setlength{\voffset}{-10mm}
+	\setlength{\topmargin}{0mm}
+	\setlength{\headheight}{5mm}
+	\setlength{\headsep}{5mm}
+	\setlength{\footskip}{10mm}
+
 	\fancyfoot{} % 清除页脚
-	\ctexset{section/nameformat = \large\heiti\centering} % 标题格式
+	\ctexset{
+		section/nameformat = {\large\heiti\centering}
+	} % 标题格式
 }
+
 \fancypagestyle{ujnbody} % 定义正文格式
 {
-	\ctexset{section/titleformat = \large\heiti\centering} % 标题格式
+	\setlength{\voffset}{-10mm}
+	\setlength{\topmargin}{0mm}
+	\setlength{\headheight}{5mm}
+	\setlength{\headsep}{5mm}
+	\setlength{\footskip}{10mm}
+
+	\ctexset{
+		section/format += \newpage,
+		section/titleformat = {\large\heiti},
+		section/numberformat = {\large\bfseries},
+		section/beforeskip = 0ex,
+		section/afterskip = 1.5em
+	} % 标题格式
 	\pagenumbering{arabic} % 数字页码
 	\fancyfoot[C]{- \thepage{} -} % 页码居中左右两杠
 }

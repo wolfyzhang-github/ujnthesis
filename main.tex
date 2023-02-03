@@ -1,30 +1,63 @@
 \documentclass[UTF8, zihao = -4, linespread = 1.25, heading = true]{ctexart}
 
-\input{ujnsty}
-\input{ujnenv}
+\input{ujnsty} % 样式定义
+\input{ujnenv} % 环境定义
 
 \begin{document}
 
-\includepdf[pages=-]{docs/01-cover.pdf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 模板正文 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+% 毕业论文文档装订顺序（据信息学院 2018.6.2 更新版本）：
+%
+%   1 毕业论文（设计）（封皮）                  //计科计卓计软统一专业名：计算机科学与技术
+%   2 毕业论文（设计）正文
+%   3 毕业论文（设计）附件（封皮）
+%   4 毕业论文（设计）任务书
+%   5 毕业论文开题报告/毕业设计方案
+%   6 毕业论文（设计）外文资料翻译（封皮）       //此处的题目是翻译的文章的中文题目
+%   7 英文原文
+%   8 英文译文
+%
+%   // 以下文档由学生提交电子版，后期老师的评语和评分统一打印，签字和日期必须手写
+%
+%   9-1 毕业论文（设计）开题评分表
+%   9-2 毕业论文（设计）中期检查评分表
+%   9-3 毕业论文（设计）日常考核评分
+%   9-4 毕业论文（设计）评阅评分表
+%   9-5 毕业论文（设计）答辩评分表
+%   10 毕业论文（设计）评语
+%
 
 
-\pagestyle{ujnabstract} % 使用摘要格式
-\include{chapter/ch2-basic/abstract-cn.tex}
-\include{chapter/ch2-basic/abstract-en.tex}
-
-\pagestyle{ujncontent} % 使用目录格式
-\include{chapter/ch2-basic/content.tex}
-
-\pagestyle{ujnbody} % 使用正文格式
-\include{chapter/ch2-basic/body.tex}
-
-\include{chapter/ch2-basic/conclusion.tex}
-\include{chapter/ch2-basic/reference.tex}
-\include{chapter/ch2-basic/thanks.tex}
-\include{chapter/ch2-basic/appendix.tex}
+\includepdf[pages=-]{docs/01-cover.pdf}                     % 1 毕业论文封面
 
 
-\include{others.tex}
-\include{translation.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%% 以下为毕业论文正文内容 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\pagestyle{ujnabstract}
+\include{chapter/ch2-basic/abstract-cn.tex}                 % 2.1 中文摘要
+\pagestyle{ujnabstract*}
+\include{chapter/ch2-basic/abstract-en.tex}                 % 2.2 英文摘要
+
+\pagestyle{ujncontent}
+\include{chapter/ch2-basic/content.tex}                     % 2.3 目录
+
+\pagestyle{ujnbody}
+\include{chapter/ch2-basic/body.tex}                        % 2.4 正文
+
+\include{chapter/ch2-basic/conclusion.tex}                  % 2.5 结论
+\include{chapter/ch2-basic/reference.tex}                   % 2.6 参考文献
+\include{chapter/ch2-basic/thanks.tex}                      % 2.7 致谢
+\include{chapter/ch2-basic/appendix.tex}                    % 2.8 附录
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% 以上为毕业论文正文内容 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{others.tex}                            % 3-6 表格性质的其他内容
+\include{translation.tex}                       % 7-8 外文翻译
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 模板正文 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
