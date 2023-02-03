@@ -4,3 +4,9 @@
 *.log
 *.synctex.gz
 *.pdf
+*.synctex(busy)
+*.bbl
+*.blg
+*.out
+*.toc
+*.bst
