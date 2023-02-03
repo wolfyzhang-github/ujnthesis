@@ -1,8 +1,8 @@
-\documentclass[UTF8, zihao = -4, linespread = 1.25]{ctexart}
-\usepackage[heading = true]{ctex}
+\documentclass{article}
+\usepackage[UTF8, zihao = -4, linespread = 1.25, heading = true]{ctex}
 \ctexset{
-  name = {结论, 附录},
-  numbering = {false}
+  %appendix/name = {结论},
+  %appendix/numbering = false
   %section = {},
   %subsection = {},
   %subsubsection = {}
@@ -11,14 +11,16 @@
 \usepackage[a4paper,left=3cm,right=2.5cm,top=2.5cm,bottom=2cm]{geometry}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
+\fancyhead{}
 \renewcommand\headrulewidth{1.5pt}
 \renewcommand\footrulewidth{1.5pt}
-\setlength{\voffset}{-10mm}                        
-\setlength{\topmargin}{0mm}
-\setlength{\headheight}{5mm}
-\setlength{\headsep}{5mm}
-\setlength{\footskip}{10mm}
+%\setlength{\voffset}{-10mm}
+%\setlength{\topmargin}{0mm}
+%\setlength{\headheight}{5mm}
+%\setlength{\headsep}{5mm}
+%\setlength{\footskip}{10mm}
 \chead{济南大学毕业设计}
+\cfoot{- \thepage{} -}
 \begin{document}
 \includepdf[pages=-]{docs/01-cover.pdf}
 
