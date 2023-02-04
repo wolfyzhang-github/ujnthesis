@@ -1,5 +1,5 @@
-\usepackage{pdfpages, setspace, graphicx}
-\usepackage[a4paper, top = 2.5cm, bottom = 2.5cm, left = 3cm, right = 2.5cm, showframe]{geometry}
+\usepackage{pdfpages, setspace, graphicx, tikz}
+\usepackage[a4paper, top = 2.5cm, bottom = 2.5cm, left = 3cm, right = 2.5cm]{geometry}
 
 \usepackage{fontspec}
 \setmainfont{Times New Roman}[BoldFont = *-Bold]
@@ -12,19 +12,19 @@
 \renewcommand\footrulewidth{1.6pt}
 
 \usepackage{titletoc}
-\titlecontents{section}
+\titlecontents{chapter}
 	[1em]
 	{\normalsize\vspace{0em}}
 	{\contentslabel{1em}}
 	{\hspace*{-1em}}
 	{~\titlerule*[0.4pc]{.}~\contentspage}
-\titlecontents{subsection}
+\titlecontents{section}
 	[4em]
 	{\normalsize\vspace{0em}}
 	{\contentslabel{2em}}
 	{\hspace*{0em}}
 	{~\titlerule*[0.4pc]{.}~\contentspage}
-\titlecontents{subsubsection}
+\titlecontents{subsection}
 	[6.5em]
 	{\normalsize\vspace{0em}}
 	{\contentslabel{2.5em}}
@@ -33,10 +33,14 @@
 
 \renewcommand{\contentsname}{\small{\quad\\ \quad\\ }\large{目\qquad 录\\}}
 
+\tiny\newsavebox{\blindingbox}
+\sbox{\blindingbox}{\parbox{1em}{\tikz{\draw[densely dotted](0,-26.25)--(0,1)}}}
+\newcommand{\putblindingline}{\reversemarginpar\marginpar{\vspace{-1.3cm}\hspace{0.4cm}\usebox{\blindingbox}}}
+
 \ctexset{
+	chapter/aftername = {\enspace},
 	section/aftername = {\enspace},
-	subsection/aftername = {\enspace},
-	subsubsection/aftername = {\enspace}
+	subsection/aftername = {\enspace}
 }
 
 \fancypagestyle{ujnabstract} % 定义中文摘要格式
@@ -48,7 +52,7 @@
 	\setlength{\footskip}{10mm}
 
 	\ctexset{
-		section/format = {\large\heiti\centering}
+		chapter/format = {\large\heiti\centering}
 	}
 	\pagenumbering{Roman} % 罗马数字页码
 	\fancyfoot[C]{- \thepage{} -} % 页码居中左右两杠
@@ -65,7 +69,7 @@
 	\setlength{\footskip}{10mm}
 
 	\ctexset{
-		section/format = {\large\centering\bfseries}
+		chapter/format = {\large\centering\bfseries}
 	} % 标题格式
 	\fancyfoot[C]{- \thepage{} -} % 页码居中左右两杠
 
@@ -82,7 +86,7 @@
 
 	\fancyfoot{} % 清除页脚
 	\ctexset{
-		section/nameformat = {\large\heiti\centering}
+		chapter/nameformat = {\large\heiti\centering}
 	} % 标题格式
 }
 
@@ -95,11 +99,19 @@
 	\setlength{\footskip}{10mm}
 
 	\ctexset{
-		section/format += \newpage,
-		section/titleformat = {\large\heiti},
-		section/numberformat = {\large\bfseries},
-		section/beforeskip = 0ex,
-		section/afterskip = 1.5em
+		%section/format += \clearpage,
+		chapter/titleformat = {\large\heiti},
+		chapter/numberformat = {\large\bfseries},
+		chapter/beforeskip = 0ex,
+		chapter/afterskip = 1.5em,
+		section/titleformat = {\zihao{4}\heiti},
+		section/numberformat = {\zihao{4}\bfseries},
+		section/beforeskip = 0.5em,
+		section/afterskip = 0.5em,
+		subsection/titleformat = {\normalsize\heiti},
+		subsection/numberformat = {\normalsize\bfseries},
+		subsection/beforeskip = 0.5em,
+		subsection/afterskip = 0.5em
 	} % 标题格式
 	\pagenumbering{arabic} % 数字页码
 	\fancyfoot[C]{- \thepage{} -} % 页码居中左右两杠
