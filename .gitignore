@@ -1,12 +1,2 @@
-*.aux
-*.fdb_latexmk
-*.fls
-*.log
-*.synctex.gz
-*.synctex(busy)
-*.bbl
-*.blg
-*.out
-*.toc
-*.bst
-*.xcp
+build/*
+!build/main.pdf

@@ -1,4 +1,5 @@
 {
+    "latex-workshop.latex.outDir": "./build",
     "latex-workshop.latex.autoBuild.run": "never",
     "latex-workshop.showContextMenu": true,
     "latex-workshop.intellisense.package.enabled": true,
@@ -7,7 +8,7 @@
     "latex-workshop.latex.tools": [
         {
             "name": "xelatex",
-            "command": "xelatex",
+            "command": "xelatex -output-directory=build",
             "args": [
                 "-synctex=1",
                 "-interaction=nonstopmode",
@@ -17,7 +18,7 @@
         },
         {
             "name": "pdflatex",
-            "command": "pdflatex",
+            "command": "pdflatex -output-directory=build",
             "args": [
                 "-synctex=1",
                 "-interaction=nonstopmode",
@@ -108,7 +109,9 @@
         "*.ist",
         "*.fls",
         "*.log",
-        "*.fdb_latexmk"
+        "*.fdb_latexmk",
+        "*.synctex.gz",
+        "*.synctex(busy)"
     ],
     "latex-workshop.latex.autoClean.run": "onFailed",
     "latex-workshop.latex.recipe.default": "lastUsed",
