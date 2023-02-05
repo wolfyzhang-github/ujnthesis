@@ -1,4 +1,4 @@
-\documentclass[UTF8, zihao = -4, linespread = 1.25, heading = true]{ctexbook}
+\documentclass[UTF8, zihao = -4, linespread = 1.25, heading = true]{ctexart}
 
 \input{ujnsty} % 样式定义
 \input{ujnenv} % 环境定义
@@ -41,12 +41,13 @@
 \pagestyle{ujnabstract*}
 \include{chapter/ch2-basic/abstract-en.tex}                 % 2.2 英文摘要
 
-\pagestyle{ujncontent}
-\include{chapter/ch2-basic/content.tex}                     % 2.3 目录
+%\pagestyle{ujncontent}
+%\include{chapter/ch2-basic/content.tex}                     % 2.3 目录
 
 \pagestyle{ujnbody}
 \include{chapter/ch2-basic/body.tex}                        % 2.4 正文
 
+\pagestyle{ujnothers}
 \include{chapter/ch2-basic/conclusion.tex}                  % 2.5 结论
 \include{chapter/ch2-basic/reference.tex}                   % 2.6 参考文献
 \include{chapter/ch2-basic/thanks.tex}                      % 2.7 致谢
