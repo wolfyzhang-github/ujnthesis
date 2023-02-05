@@ -1,4 +1,4 @@
-\usepackage{pdfpages, setspace, graphicx, tikz}
+\usepackage{pdfpages, setspace, graphicx, tikz, afterpage}
 \usepackage[a4paper, top = 2.5cm, bottom = 2.5cm, left = 3cm, right = 2.5cm]{geometry}
 
 \usepackage{fontspec}
@@ -11,20 +11,26 @@
 \renewcommand\headrulewidth{1.6pt}
 \renewcommand\footrulewidth{1.6pt}
 
+\setlength{\voffset}{-10mm}
+\setlength{\topmargin}{0mm}
+\setlength{\headheight}{5mm}
+\setlength{\headsep}{5mm}
+\setlength{\footskip}{10mm}
+
 \usepackage{titletoc}
-\titlecontents{chapter}
+\titlecontents{section}
 	[1em]
 	{\normalsize\vspace{0em}}
 	{\contentslabel{1em}}
 	{\hspace*{-1em}}
 	{~\titlerule*[0.4pc]{.}~\contentspage}
-\titlecontents{section}
+\titlecontents{subsection}
 	[4em]
 	{\normalsize\vspace{0em}}
 	{\contentslabel{2em}}
 	{\hspace*{0em}}
 	{~\titlerule*[0.4pc]{.}~\contentspage}
-\titlecontents{subsection}
+\titlecontents{subsubsection}
 	[6.5em]
 	{\normalsize\vspace{0em}}
 	{\contentslabel{2.5em}}
@@ -38,21 +44,15 @@
 \newcommand{\putblindingline}{\reversemarginpar\marginpar{\vspace{-1.3cm}\hspace{0.4cm}\usebox{\blindingbox}}}
 
 \ctexset{
-	chapter/aftername = {\enspace},
 	section/aftername = {\enspace},
-	subsection/aftername = {\enspace}
+	subsection/aftername = {\enspace},
+	subsubsection/aftername = {\enspace}
 }
 
 \fancypagestyle{ujnabstract} % 定义中文摘要格式
 {
-	\setlength{\voffset}{-10mm}
-	\setlength{\topmargin}{0mm}
-	\setlength{\headheight}{5mm}
-	\setlength{\headsep}{5mm}
-	\setlength{\footskip}{10mm}
-
 	\ctexset{
-		chapter/format = {\large\heiti\centering}
+		section/format = {\large\heiti\centering}
 	}
 	\pagenumbering{Roman} % 罗马数字页码
 	\fancyfoot[C]{- \thepage{} -} % 页码居中左右两杠
@@ -62,14 +62,8 @@
 
 \fancypagestyle{ujnabstract*} % 定义英文摘要格式
 {
-	\setlength{\voffset}{-10mm}
-	\setlength{\topmargin}{0mm}
-	\setlength{\headheight}{5mm}
-	\setlength{\headsep}{5mm}
-	\setlength{\footskip}{10mm}
-
 	\ctexset{
-		chapter/format = {\large\centering\bfseries}
+		section/format = {\large\centering\bfseries}
 	} % 标题格式
 	\fancyfoot[C]{- \thepage{} -} % 页码居中左右两杠
 
@@ -78,41 +72,32 @@
 
 \fancypagestyle{ujncontent} % 定义目录格式
 {
-	\setlength{\voffset}{-10mm}
-	\setlength{\topmargin}{0mm}
-	\setlength{\headheight}{5mm}
-	\setlength{\headsep}{5mm}
-	\setlength{\footskip}{10mm}
-
 	\fancyfoot{} % 清除页脚
 	\ctexset{
-		chapter/nameformat = {\large\heiti\centering}
+		section/nameformat = {\large\heiti\centering}
 	} % 标题格式
 }
 
 \fancypagestyle{ujnbody} % 定义正文格式
 {
-	\setlength{\voffset}{-10mm}
-	\setlength{\topmargin}{0mm}
-	\setlength{\headheight}{5mm}
-	\setlength{\headsep}{5mm}
-	\setlength{\footskip}{10mm}
-
 	\ctexset{
-		%section/format += \clearpage,
-		chapter/titleformat = {\large\heiti},
-		chapter/numberformat = {\large\bfseries},
-		chapter/beforeskip = 0ex,
-		chapter/afterskip = 1.5em,
-		section/titleformat = {\zihao{4}\heiti},
-		section/numberformat = {\zihao{4}\bfseries},
-		section/beforeskip = 0.5em,
-		section/afterskip = 0.5em,
-		subsection/titleformat = {\normalsize\heiti},
-		subsection/numberformat = {\normalsize\bfseries},
+		section/format += \clearpage,
+		section/titleformat = {\large\heiti},
+		section/numberformat = {\large\bfseries},
+		section/beforeskip = 0ex,
+		section/afterskip = 1.5em,
+		subsection/titleformat = {\zihao{4}\heiti},
+		subsection/numberformat = {\zihao{4}\bfseries},
 		subsection/beforeskip = 0.5em,
-		subsection/afterskip = 0.5em
+		subsection/afterskip = 0.5em,
+		subsubsection/titleformat = {\normalsize\heiti},
+		subsubsection/numberformat = {\normalsize\bfseries},
+		subsubsection/beforeskip = 0.5em,
+		subsubsection/afterskip = 0.5em
 	} % 标题格式
 	\pagenumbering{arabic} % 数字页码
 	\fancyfoot[C]{- \thepage{} -} % 页码居中左右两杠
 }
+
+\fancypagestyle{ujnothers} % 定义其他格式
+{}

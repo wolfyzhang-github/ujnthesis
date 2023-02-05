@@ -2,7 +2,7 @@
 {
 	\putblindingline
 	\ctexset{
-		chapter/numbering = false % 目录不计数
+		section/numbering = false % 目录不计数
 	}
 }
 {}
@@ -11,55 +11,58 @@
 {
 	\putblindingline
 	\ctexset{
-		chapter/numbering = false
+		section/numbering = false
 	}
 }
 {}
 
 \newenvironment{ujncontent} 	  % 目录环境
 {
-	\putblindingline
+	\afterpage{\putblindingline}
 }
 {}
 
 \newenvironment{ujnbody} 		  % 正文环境
 {
-	\putblindingline
+	\afterpage{\putblindingline}
+	%\begin{figure}[b]
+	%	\putblindingline
+	%\end{figure}
 }
 {}
 
 \newenvironment{ujnconclusion} 	  % 结论环境
 {	
-	\putblindingline
+	\afterpage{\putblindingline}
 	\ctexset{
-		chapter/numbering = false
+		section/numbering = false
 	}
 }
 {}
 
 \newenvironment{ujnreference} 	  % 参考文献环境
 {
-	\putblindingline
+	\afterpage{\putblindingline}
 	\ctexset{
-		chapter/numbering = false
+		section/numbering = false
 	}
 }
 {}
 
 \newenvironment{ujnthanks} 		  % 致谢环境
 {
-	\putblindingline
+	\afterpage{\putblindingline}
 	\ctexset{
-		chapter/numbering = false
+		section/numbering = false
 	}
 }
 {}
 
 \newenvironment{ujnappendix} 	  % 附录环境
 {
-	\putblindingline
+	\afterpage{\putblindingline}
 	\ctexset{
-		chapter/numbering = false
+		section/numbering = false
 	}
 }
 {}
