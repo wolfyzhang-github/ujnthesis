@@ -8,7 +8,8 @@
     "latex-workshop.latex.tools": [
         {
             "name": "xelatex",
-            "command": "xelatex -output-directory=build",
+            "command": "xelatex",
+            // "command": "xelatex -output-directory=build",
             "args": [
                 "-synctex=1",
                 "-interaction=nonstopmode",
