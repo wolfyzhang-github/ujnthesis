@@ -1,6 +1,7 @@
 \newenvironment{ujnabstract} 	  % 中文摘要环境
 {
-	\putblindingline
+	%\parginnote{测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字}
+	%\putblindingline
 	\ctexset{
 		section/numbering = false % 目录不计数
 	}
@@ -9,7 +10,8 @@
 
 \newenvironment{ujnabstract*} 	  % 英文摘要环境
 {
-	\putblindingline
+	%\parginnote{测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字}
+	%\putblindingline
 	\ctexset{
 		section/numbering = false
 	}
@@ -18,13 +20,17 @@
 
 \newenvironment{ujncontent} 	  % 目录环境
 {
-	\afterpage{\putblindingline}
+	%\parginnote{测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字}
+	%\afterpage{\putblindingline}
+	%\reversemarginpar\marginnote{测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字}
 }
 {}
 
 \newenvironment{ujnbody} 		  % 正文环境
 {
-	\afterpage{\putblindingline}
+	%parginnote{测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字}
+	%\afterpage{\putblindingline}
+	%\afterpage{\reversemarginpar\marginnote{测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字}}
 	%\begin{figure}[b]
 	%	\putblindingline
 	%\end{figure}
@@ -33,7 +39,7 @@
 
 \newenvironment{ujnconclusion} 	  % 结论环境
 {	
-	\afterpage{\putblindingline}
+	%\afterpage{\putblindingline}
 	\ctexset{
 		section/numbering = false
 	}
@@ -42,7 +48,7 @@
 
 \newenvironment{ujnreference} 	  % 参考文献环境
 {
-	\afterpage{\putblindingline}
+	%\afterpage{\putblindingline}
 	\ctexset{
 		section/numbering = false
 	}
@@ -51,7 +57,7 @@
 
 \newenvironment{ujnthanks} 		  % 致谢环境
 {
-	\afterpage{\putblindingline}
+	%\afterpage{\putblindingline}
 	\ctexset{
 		section/numbering = false
 	}
@@ -60,7 +66,7 @@
 
 \newenvironment{ujnappendix} 	  % 附录环境
 {
-	\afterpage{\putblindingline}
+	%\afterpage{\putblindingline}
 	\ctexset{
 		section/numbering = false
 	}

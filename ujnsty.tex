@@ -1,5 +1,5 @@
-\usepackage{pdfpages, setspace, graphicx, tikz, afterpage}
-\usepackage[a4paper, top = 2.5cm, bottom = 2.5cm, left = 3cm, right = 2.5cm]{geometry}
+\usepackage{pdfpages, setspace, graphicx, tikz, afterpage, booktabs}
+\usepackage[a4paper, top = 2.5cm, bottom = 2.5cm, left = 3cm, right = 2.5cm, showframe]{geometry}
 
 \usepackage{fontspec}
 \setmainfont{Times New Roman}[BoldFont = *-Bold]
@@ -98,6 +98,8 @@
 	\pagenumbering{arabic} % 数字页码
 	\fancyfoot[C]{- \thepage{} -} % 页码居中左右两杠
 }
+
+%\afterpage{\putblindingline}
 
 \fancypagestyle{ujnothers} % 定义其他格式
 {}
