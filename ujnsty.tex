@@ -38,6 +38,7 @@
 	{~\titlerule*[0.4pc]{.}~\contentspage}
 
 \renewcommand{\contentsname}{\small{\quad\\ \quad\\ }\large{目\qquad 录\\}}
+%\renewcommand{\refname}{\section[参考文献]{参\enspace 考\enspace 文\enspace 献}}
 
 \tiny\newsavebox{\blindingbox}
 \sbox{\blindingbox}{\parbox{1em}{\tikz{\draw[densely dotted](0,-26.25)--(0,1)}}}
@@ -46,7 +47,8 @@
 \ctexset{
 	section/aftername = {\enspace},
 	subsection/aftername = {\enspace},
-	subsubsection/aftername = {\enspace}
+	subsubsection/aftername = {\enspace},
+	bibname = {参\enspace 考\enspace 文\enspace 献}
 }
 
 \fancypagestyle{ujnabstract} % 定义中文摘要格式
