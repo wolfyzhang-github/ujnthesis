@@ -1,8 +1,15 @@
-\usepackage{pdfpages, setspace, graphicx, tikz, afterpage, booktabs}
-\usepackage[a4paper, top = 2.5cm, bottom = 2.5cm, left = 3cm, right = 2.5cm, showframe]{geometry}
+\usepackage{pdfpages, setspace, graphicx, dashrule, booktabs}
+
+\usepackage[a4paper, top = 2.5cm, bottom = 2.5cm, left = 3cm, right = 2.5cm]{geometry}
 
 \usepackage{fontspec}
 \setmainfont{Times New Roman}[BoldFont = *-Bold]
+
+\usepackage[scale = 1, angle = 90, color = black, hshift = 15pt, vshift = 9cm]{background}
+\backgroundsetup{contents={\hdashrule[0cm]{26.85cm}{0pt}{0pt}}}
+
+\newcommand{\setblindingline}{\backgroundsetup{contents={\hdashrule[0cm]{26.85cm}{1pt}{1pt}}}}
+\newcommand{\unsetblindingline}{\backgroundsetup{contents={}}}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -11,11 +18,21 @@
 \renewcommand\headrulewidth{1.6pt}
 \renewcommand\footrulewidth{1.6pt}
 
-\setlength{\voffset}{-10mm}
-\setlength{\topmargin}{0mm}
-\setlength{\headheight}{5mm}
-\setlength{\headsep}{5mm}
-\setlength{\footskip}{10mm}
+\newcommand{\setfancylength}{
+	\setlength{\voffset}{-10mm}
+	\setlength{\topmargin}{0mm}
+	\setlength{\headheight}{5mm}
+	\setlength{\headsep}{5mm}
+	\setlength{\footskip}{10mm}
+}
+
+\newcommand{\unsetfancylength}{
+	\setlength{\voffset}{-10mm}
+	\setlength{\topmargin}{0mm}
+	\setlength{\headheight}{5mm}
+	\setlength{\headsep}{5mm}
+	\setlength{\footskip}{10mm}
+}
 
 \usepackage{titletoc}
 \titlecontents{section}
@@ -38,11 +55,6 @@
 	{~\titlerule*[0.4pc]{.}~\contentspage}
 
 \renewcommand{\contentsname}{\small{\quad\\ \quad\\ }\large{目\qquad 录\\}}
-%\renewcommand{\refname}{\section[参考文献]{参\enspace 考\enspace 文\enspace 献}}
-
-\tiny\newsavebox{\blindingbox}
-\sbox{\blindingbox}{\parbox{1em}{\tikz{\draw[densely dotted](0,-26.25)--(0,1)}}}
-\newcommand{\putblindingline}{\reversemarginpar\marginpar{\vspace{-1.3cm}\hspace{0.4cm}\usebox{\blindingbox}}}
 
 \ctexset{
 	section/aftername = {\enspace},
@@ -50,6 +62,7 @@
 	subsubsection/aftername = {\enspace},
 	bibname = {参\enspace 考\enspace 文\enspace 献}
 }
+
 
 \fancypagestyle{ujnabstract} % 定义中文摘要格式
 {
@@ -101,7 +114,22 @@
 	\fancyfoot[C]{- \thepage{} -} % 页码居中左右两杠
 }
 
-%\afterpage{\putblindingline}
+\fancypagestyle{ujnothers}{}
 
-\fancypagestyle{ujnothers} % 定义其他格式
-{}
+
+\newenvironment{ujnabstract}{
+	\setfancylength
+	\ctexset{section/numbering = false}
+}{}
+
+\newenvironment{ujnabstract*}{\ctexset{section/numbering = false}}{}
+\newenvironment{ujnbody}{\ctexset{section/numbering = true}}{}
+\newenvironment{ujnconclusion}{\ctexset{section/numbering = false}}{}
+\newenvironment{ujnreference}{\ctexset{section/numbering = false}}{}
+\newenvironment{ujnthanks}{\ctexset{section/numbering = false}}{}
+
+\newenvironment{ujnappendix}{
+	\ctexset{section/numbering = false}
+}{
+	\unsetfancylength
+}
