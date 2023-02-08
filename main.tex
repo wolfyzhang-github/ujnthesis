@@ -1,7 +1,6 @@
 \documentclass[UTF8, zihao = -4, linespread = 1.25, heading = true]{ctexart}
 
 \input{ujnsty} % 样式定义
-\input{ujnenv} % 环境定义
 
 \begin{document}
 
@@ -30,12 +29,12 @@
 %
 
 
-%\includepdf[pages=-]{docs/01-cover.pdf}                     % 1 毕业论文封面
+\includepdf[pages=-]{docs/01-cover.pdf}                     % 1 毕业论文封面
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% 以下为毕业论文正文内容 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+\setblindingline
 \pagestyle{ujnabstract}
 \include{chapter/ch2-basic/abstract-cn.tex}                 % 2.1 中文摘要
 \pagestyle{ujnabstract*}
@@ -52,12 +51,12 @@
 \include{chapter/ch2-basic/reference.tex}                   % 2.6 参考文献
 \include{chapter/ch2-basic/thanks.tex}                      % 2.7 致谢
 \include{chapter/ch2-basic/appendix.tex}                    % 2.8 附录
-
+\unsetblindingline
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% 以上为毕业论文正文内容 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\include{others.tex}                            % 3-6 表格性质的其他内容
-%\include{translation.tex}                       % 7-8 外文翻译
+\include{others.tex}                            % 3-6 表格性质的其他内容
+\include{translation.tex}                       % 7-8 外文翻译
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 模板正文 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
