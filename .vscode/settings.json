@@ -9,33 +9,11 @@
         {
             "name": "xelatex",
             "command": "xelatex",
-            // "command": "xelatex -output-directory=build",
             "args": [
+                "-output-directory=build",
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
-                "%DOCFILE%"
-            ]
-        },
-        {
-            "name": "pdflatex",
-            "command": "pdflatex -output-directory=build",
-            "args": [
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "%DOCFILE%"
-            ]
-        },
-        {
-            "name": "latexmk",
-            "command": "latexmk",
-            "args": [
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "-pdf",
-                "-outdir=%OUTDIR%",
                 "%DOCFILE%"
             ]
         },
@@ -43,7 +21,7 @@
             "name": "bibtex",
             "command": "bibtex",
             "args": [
-                "%DOCFILE%"
+                "build/%DOCFILE%"
             ]
         }
     ],
@@ -55,21 +33,9 @@
             ]
         },
         {
-            "name": "PDFLaTeX",
-            "tools": [
-                "pdflatex"
-            ]
-        },
-        {
             "name": "BibTeX",
             "tools": [
                 "bibtex"
-            ]
-        },
-        {
-            "name": "LaTeXmk",
-            "tools": [
-                "latexmk"
             ]
         },
         {
@@ -79,15 +45,6 @@
                 "bibtex",
                 "xelatex",
                 "xelatex"
-            ]
-        },
-        {
-            "name": "pdflatex -> bibtex -> pdflatex*2",
-            "tools": [
-                "pdflatex",
-                "bibtex",
-                "pdflatex",
-                "pdflatex"
             ]
         },
     ],
