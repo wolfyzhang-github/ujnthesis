@@ -1,19 +1,37 @@
 \ProvidesPackage{ujnthesis}
 
-\usepackage{pdfpages, setspace, graphicx, dashrule, booktabs}
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{pdfpages, setspace, graphicx, dashrule, booktabs, listings}
 
-\usepackage[a4paper, top = 2.5cm, bottom = 2.5cm, left = 3cm, right = 2.5cm]{geometry}
+\setmonofont{Times New Roman}
+\lstset{
+	columns = fullflexible,
+	language = C,
+	frame = trbl,
+	showstringspaces = false,
+	breaklines = true,
+	extendedchars = false,
+	texcl = true,
+	basicstyle = \small\linespread{1},
+	tabsize = 4,
+	backgroundcolor = \color[RGB]{242,242,242},
+	keywordstyle = {\color{blue}\bfseries},
+	stringstyle = {\color{Maroon}},
+	commentstyle = {\color{OliveGreen}}
+}
 
-\usepackage{fontspec}
+\RequirePackage[a4paper, top = 2.5cm, bottom = 2.5cm, left = 3cm, right = 2.5cm]{geometry}
+
+\RequirePackage{fontspec}
 \setmainfont{Times New Roman}[BoldFont = *-Bold]
 
-\usepackage[scale = 1, angle = 90, color = black, hshift = 15pt, vshift = 9cm]{background}
-\backgroundsetup{contents={\hdashrule[0cm]{26.85cm}{0pt}{0pt}}}
+\RequirePackage[scale = 1, angle = 90, color = black, hshift = 15pt, vshift = 9cm]{background}
+\backgroundsetup{contents = {\hdashrule[0cm]{26.85cm}{0pt}{0pt}}}
 
 \newcommand{\setblindingline}{\backgroundsetup{contents={\hdashrule[0cm]{26.85cm}{1pt}{1pt}}}}
-\newcommand{\unsetblindingline}{\backgroundsetup{contents={}}}
+\newcommand{\unsetblindingline}{\backgroundsetup{contents = {}}}
 
-\usepackage{fancyhdr}
+\RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhead{}
 \chead{\small{济南大学毕业设计}\fontsize{2pt}{7pt}\selectfont{\\ \quad}}
@@ -36,7 +54,7 @@
 	\setlength{\footskip}{10mm}
 }
 
-\usepackage{titletoc}
+\RequirePackage{titletoc}
 \titlecontents{section}
 	[1em]
 	{\normalsize\vspace{0em}}
@@ -118,7 +136,6 @@
 
 \fancypagestyle{ujnothers}{}
 
-
 \newenvironment{ujnabstract}{
 	\setfancylength
 	\ctexset{section/numbering = false}
@@ -131,6 +148,12 @@
 \newenvironment{ujnthanks}{\ctexset{section/numbering = false}}{}
 
 \newenvironment{ujnappendix}{
+	\ctexset{section/numbering = false}
+}{
+	\unsetfancylength
+}
+
+\newenvironment{ujncode}{
 	\ctexset{section/numbering = false}
 }{
 	\unsetfancylength
