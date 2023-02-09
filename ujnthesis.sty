@@ -1,7 +1,7 @@
 \ProvidesPackage{ujnthesis}
 
 \RequirePackage[dvipsnames]{xcolor}
-\RequirePackage{pdfpages, setspace, graphicx, dashrule, booktabs, listings}
+\RequirePackage{pdfpages, setspace, graphicx, dashrule, booktabs, listings, setspace}
 
 \setmonofont{Times New Roman}
 \lstset{
@@ -25,7 +25,7 @@
 \RequirePackage{fontspec}
 \setmainfont{Times New Roman}[BoldFont = *-Bold]
 
-\RequirePackage[scale = 1, angle = 90, color = black, hshift = 15pt, vshift = 9cm]{background}
+\RequirePackage[scale = 1, angle = 90, color = black, hshift = -5mm, vshift = 8.8cm]{background}
 \backgroundsetup{contents = {\hdashrule[0cm]{26.85cm}{0pt}{0pt}}}
 
 \newcommand{\setblindingline}{\backgroundsetup{contents={\hdashrule[0cm]{26.85cm}{1pt}{1pt}}}}
@@ -35,23 +35,22 @@
 \pagestyle{fancy}
 \fancyhead{}
 \chead{\small{济南大学毕业设计}\fontsize{2pt}{7pt}\selectfont{\\ \quad}}
+
 \renewcommand\headrulewidth{1.6pt}
 \renewcommand\footrulewidth{1.6pt}
 
 \newcommand{\setfancylength}{
-	\setlength{\voffset}{-10mm}
-	\setlength{\topmargin}{0mm}
-	\setlength{\headheight}{5mm}
+	\setlength{\voffset}{3mm}
+	\setlength{\headheight}{7mm}
 	\setlength{\headsep}{5mm}
-	\setlength{\footskip}{10mm}
+	\setlength{\footskip}{4mm}
 }
 
 \newcommand{\unsetfancylength}{
-	\setlength{\voffset}{-10mm}
-	\setlength{\topmargin}{0mm}
-	\setlength{\headheight}{5mm}
-	\setlength{\headsep}{5mm}
-	\setlength{\footskip}{10mm}
+	\setlength{\voffset}{0mm}
+	\setlength{\headheight}{0mm}
+	\setlength{\headsep}{0mm}
+	\setlength{\footskip}{0mm}
 }
 
 \RequirePackage{titletoc}
@@ -74,7 +73,7 @@
 	{\hspace*{0em}}
 	{~\titlerule*[0.4pc]{.}~\contentspage}
 
-\renewcommand{\contentsname}{\small{\quad\\ \quad\\ }\large{目\qquad 录\\}}
+\renewcommand{\contentsname}{\begin{spacing}{1.2}\small{\quad\\ \quad\\ }\large{目\qquad 录\\}\end{spacing}}
 
 \ctexset{
 	section/aftername = {\enspace},
@@ -87,22 +86,26 @@
 \fancypagestyle{ujnabstract} % 定义中文摘要格式
 {
 	\ctexset{
-		section/format = {\large\heiti\centering}
+		section/format = {\large\heiti\centering},
+		section/beforeskip = {2em},
+		section/afterskip = {21pt}
 	}
 	\pagenumbering{Roman} % 罗马数字页码
-	\fancyfoot[C]{- \thepage{} -} % 页码居中左右两杠
+	\fancyfoot[C]{\fontsize{2pt}{7pt}\selectfont{\\ \quad}\small{--\enspace\thepage{}\enspace--}} % 页码居中左右两杠
 
-	\newcommand\cnkeywords[1]{\\ \quad\small{\bfseries{\\ 关键词:}} ##1}
+	\newcommand\cnkeywords[1]{{\\ \quad\small{\textbf{\\ 关键词：}}} ##1}
 }
 
 \fancypagestyle{ujnabstract*} % 定义英文摘要格式
 {
 	\ctexset{
-		section/format = {\large\centering\bfseries}
+		section/format = {\zihao{3}\centering\bfseries},
+		section/beforeskip = {1.5em},
+		section/afterskip = {21pt}
 	} % 标题格式
-	\fancyfoot[C]{- \thepage{} -} % 页码居中左右两杠
+	\fancyfoot[C]{\fontsize{2pt}{7pt}\selectfont{\\ \quad}\small{--\enspace\thepage{}\enspace--}} % 页码居中左右两杠
 
-	\newcommand\enkeywords[1]{\\ \quad\small{\bfseries{\\ Key words:}} ##1}
+	\newcommand\enkeywords[1]{\quad \\\small{\bfseries{Key words：}} ##1}
 }
 
 \fancypagestyle{ujncontent} % 定义目录格式
@@ -119,7 +122,7 @@
 		section/format += \clearpage,
 		section/titleformat = {\large\heiti},
 		section/numberformat = {\large\bfseries},
-		section/beforeskip = 0ex,
+		section/beforeskip = 5pt,
 		section/afterskip = 1.5em,
 		subsection/titleformat = {\zihao{4}\heiti},
 		subsection/numberformat = {\zihao{4}\bfseries},
@@ -131,30 +134,15 @@
 		subsubsection/afterskip = 0.5em
 	} % 标题格式
 	\pagenumbering{arabic} % 数字页码
-	\fancyfoot[C]{- \thepage{} -} % 页码居中左右两杠
+	\fancyfoot[C]{\small{--\enspace\thepage{}\enspace--}} % 页码居中左右两杠
 }
 
 \fancypagestyle{ujnothers}{}
 
-\newenvironment{ujnabstract}{
-	\setfancylength
-	\ctexset{section/numbering = false}
-}{}
-
-\newenvironment{ujnabstract*}{\ctexset{section/numbering = false}}{}
+\newenvironment{ujnabstract}{\ctexset{section/numbering = false}\section*{\quad\\}}{}
+\newenvironment{ujnabstract*}{\ctexset{section/numbering = false}\small{\quad\\}}{}
 \newenvironment{ujnbody}{\ctexset{section/numbering = true}}{}
 \newenvironment{ujnconclusion}{\ctexset{section/numbering = false}}{}
 \newenvironment{ujnreference}{\ctexset{section/numbering = false}}{}
 \newenvironment{ujnthanks}{\ctexset{section/numbering = false}}{}
-
-\newenvironment{ujnappendix}{
-	\ctexset{section/numbering = false}
-}{
-	\unsetfancylength
-}
-
-\newenvironment{ujncode}{
-	\ctexset{section/numbering = false}
-}{
-	\unsetfancylength
-}
+\newenvironment{ujnappendix}{\ctexset{section/numbering = false}}{}
