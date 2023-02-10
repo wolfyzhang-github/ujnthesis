@@ -49,6 +49,7 @@
         },
     ],
     "latex-workshop.latex.clean.fileTypes": [
+        "chapter/ch2-basic/*.aux",
         "*.aux",
         "*.bbl",
         "*.blg",
