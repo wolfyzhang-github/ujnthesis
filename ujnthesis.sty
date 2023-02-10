@@ -1,7 +1,7 @@
 \ProvidesPackage{ujnthesis}
 
 \RequirePackage[dvipsnames]{xcolor}
-\RequirePackage{pdfpages, setspace, graphicx, dashrule, booktabs, listings, setspace}
+\RequirePackage{pdfpages, setspace, graphicx, dashrule, booktabs, listings, setspace, amsmath}
 
 \setmonofont{Times New Roman}
 \lstset{
@@ -31,6 +31,10 @@
 \newcommand{\setblindingline}{\backgroundsetup{contents={\hdashrule[0cm]{26.85cm}{1pt}{1pt}}}}
 \newcommand{\unsetblindingline}{\backgroundsetup{contents = {}}}
 
+\renewcommand{\thefigure}{\thesection{}.\arabic{figure}}
+\renewcommand{\thetable}{\thesection{}.\arabic{table}}
+\renewcommand{\theequation}{\thesection{}.\arabic{equation}}
+
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhead{}
@@ -43,7 +47,9 @@
 	\setlength{\voffset}{3mm}
 	\setlength{\headheight}{7mm}
 	\setlength{\headsep}{5mm}
-	\setlength{\footskip}{4mm}
+	\setlength{\textheight}{245mm}
+	%\setlength{\footsep}{3mm}
+	\setlength{\footskip}{5mm}
 }
 
 \newcommand{\unsetfancylength}{
@@ -119,7 +125,12 @@
 \fancypagestyle{ujnbody} % 定义正文格式
 {
 	\ctexset{
-		section/format += \clearpage,
+		section/format += {
+			\clearpage
+			\setcounter{table}{0}
+			\setcounter{figure}{0}
+			\setcounter{equation}{0}
+		},
 		section/titleformat = {\large\heiti},
 		section/numberformat = {\large\bfseries},
 		section/beforeskip = 5pt,
