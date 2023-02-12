@@ -1,11 +1,15 @@
 {
-    "latex-workshop.latex.outDir": "./build",
-    "latex-workshop.latex.autoBuild.run": "never",
-    "latex-workshop.showContextMenu": true,
-    "latex-workshop.intellisense.package.enabled": true,
-    "latex-workshop.message.error.show": false,
-    "latex-workshop.message.warning.show": false,
-    "latex-workshop.latex.tools": [
+    "latex-workshop.latex.outDir": "./build",               // output directory
+    "latex-workshop.latex.autoBuild.run": "never",          // disable auto build
+    "latex-workshop.showContextMenu": true,                 // show context menu
+    "latex-workshop.intellisense.package.enabled": true,    // enable package intellisense
+    "latex-workshop.message.error.show": false,             // disable error message
+    "latex-workshop.message.warning.show": false,           // disable warning message
+    "latex-workshop.latex.autoClean.run": "onFailed",       // auto clean on failed
+    "latex-workshop.latex.recipe.default": "lastUsed",      // set default recipe
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click", // synctex on double click
+    "python.analysis.typeCheckingMode": "basic",            // enable python checking
+    "latex-workshop.latex.tools": [                         // define tools
         {
             "name": "xelatex",
             "command": "xelatex",
@@ -25,7 +29,7 @@
             ]
         }
     ],
-    "latex-workshop.latex.recipes": [
+    "latex-workshop.latex.recipes": [                       // define recipes
         {
             "name": "XeLaTeX",
             "tools": [
@@ -48,7 +52,7 @@
             ]
         },
     ],
-    "latex-workshop.latex.clean.fileTypes": [
+    "latex-workshop.latex.clean.fileTypes": [               // define clean file types
         "chapter/ch2-basic/*.aux",
         "*.aux",
         "*.bbl",
@@ -71,9 +75,5 @@
         "*.fdb_latexmk",
         "*.synctex.gz",
         "*.synctex(busy)"
-    ],
-    "latex-workshop.latex.autoClean.run": "onFailed",
-    "latex-workshop.latex.recipe.default": "lastUsed",
-    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
-    "python.analysis.typeCheckingMode": "basic"
+    ]
 }
