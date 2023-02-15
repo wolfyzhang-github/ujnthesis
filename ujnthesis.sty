@@ -149,6 +149,12 @@
 
 \fancypagestyle{ujnothers}{}
 
+\fancypagestyle{ujntranslation}
+{
+	\setcounter{page}{1}
+	\chead{\small{济南大学毕业设计外文资料翻译}\fontsize{2pt}{7pt}\selectfont{\\ \quad}}
+}
+
 \newenvironment{ujnabstract}{\ctexset{section/numbering = false}\section*{\quad\\}}{}
 \newenvironment{ujnabstract*}{\ctexset{section/numbering = false}\small{\quad\\}}{}
 \newenvironment{ujnbody}{\ctexset{section/numbering = true}}{}
@@ -156,3 +162,55 @@
 \newenvironment{ujnreference}{\ctexset{section/numbering = false}}{}
 \newenvironment{ujnthanks}{\ctexset{section/numbering = false}}{}
 \newenvironment{ujnappendix}{\ctexset{section/numbering = false}}{}
+
+
+
+
+\newenvironment{trans}{}{}
+\newenvironment{transabst}{
+	\setlength{\parskip}{13pt}
+}{}
+
+
+\newcommand{\transource}[4]{
+	\begin{spacing}{1.25}
+		\rightline{\zihao{4}{\textbf{#1}, #2, #3: #4.}}
+	\end{spacing}
+}
+\newcommand{\transtitle}[1]{
+	\begin{trans}\centering
+		\heiti{\normalsize{\quad\\}\Large{#1\\}}
+	\end{trans}
+}
+\newcommand{\transauther}[1]{
+	\begin{trans}\centering
+		\songti{\large{\quad\\}\normalsize{#1\\}}
+	\end{trans}
+}
+
+\newcommand{\transinstitution}[1]{
+	\begin{trans}\centering
+		\songti{\small{#1\\}\tiny{\quad\\}}
+	\end{trans}
+}
+
+\newcommand{\transabstract}[2]{
+	\begin{transabst}\raggedright
+		\fontsize{10.5bp}{15pt}\selectfont{\heiti{摘\quad 要\quad }\songti{#1\\}
+		{\heiti{关键词\quad }\songti{#2\\}}}
+	\end{transabst}
+	{\fontsize{2bp}{0pt}\selectfont{\quad\\}}
+}
+
+\newcommand{\transbody}{
+	\setcounter{section}{0}
+	\renewcommand{\section}{\@startsection{section}{1}{0bp}{15pt}{15pt}{\heiti\zihao{4}}}
+	\renewcommand{\subsection}{\@startsection{subsection}{2}{0bp}{15pt}{15pt}{\heiti\normalsize}}
+	\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0bp}{6pt}{6pt}{\heiti\normalsize}}
+
+	\ctexset{
+		section/aftername = {\quad},
+		subsection/aftername = {\quad},
+		subsubsection/aftername = {\quad}
+	}
+}
