@@ -1,10 +1,23 @@
 \ProvidesPackage{ujnthesis}
 
-\RequirePackage[dvipsnames]{xcolor}
-\RequirePackage{pdfpages, setspace, graphicx, dashrule, booktabs, listings, setspace, amsmath}
+\RequirePackage[dvipsnames]{xcolor} % 额外的颜色
+\RequirePackage{pdfpages, setspace, graphicx, dashrule, booktabs, listings, setspace, amsmath, hyperref} % 常用宏包
+\hypersetup{ % 超链接
+	hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true
+}
 
+\RequirePackage{fontspec, xeCJK} % 字体
+\setCJKmainfont[Path=fonts/,BoldFont={SimHei.ttf},ItalicFont={SimKai.ttf}]{SimSun.ttf} % 衬线
+\setCJKsansfont[Path=fonts/,BoldFont={SimHei.ttf},ItalicFont={SimKai.ttf}]{SimSun.ttf} % 无衬线
+\setmainfont{Times New Roman}[BoldFont = *-Bold]
 \setmonofont{Times New Roman}
-\lstset{
+\newcommand{\heiti}{\textbf}
+
+\lstset{ % 代码框
 	columns = fullflexible,
 	frame = trbl,
 	showstringspaces = false,
@@ -19,35 +32,31 @@
 	commentstyle = {\color{OliveGreen}}
 }
 
-\RequirePackage[a4paper, top = 2.5cm, bottom = 2.5cm, left = 3cm, right = 2.5cm]{geometry}
+\RequirePackage[a4paper, top = 2.5cm, bottom = 2.5cm, left = 3cm, right = 2.5cm]{geometry} % 页边距
 
-\RequirePackage{fontspec}
-\setmainfont{Times New Roman}[BoldFont = *-Bold]
-
-\RequirePackage[scale = 1, angle = 90, color = black, hshift = -5mm, vshift = 8.8cm]{background}
+\RequirePackage[scale = 1, angle = 90, color = black, hshift = -5mm, vshift = 8.8cm]{background} % 装订线配置
 \backgroundsetup{contents = {\hdashrule[0cm]{26.85cm}{0pt}{0pt}}}
 
-\newcommand{\setblindingline}{\backgroundsetup{contents={\hdashrule[0cm]{26.85cm}{1pt}{1pt}}}}
+\newcommand{\setblindingline}{\backgroundsetup{contents={\hdashrule[0cm]{26.85cm}{1pt}{1pt}}}} % 装订线生成
 \newcommand{\unsetblindingline}{\backgroundsetup{contents = {}}}
 
-\renewcommand{\thefigure}{\thesection{}.\arabic{figure}}
+\renewcommand{\thefigure}{\thesection{}.\arabic{figure}} % 图表公式标注
 \renewcommand{\thetable}{\thesection{}.\arabic{table}}
 \renewcommand{\theequation}{\thesection{}.\arabic{equation}}
 
-\RequirePackage{fancyhdr}
+\RequirePackage{fancyhdr} % 页眉
 \pagestyle{fancy}
 \fancyhead{}
 \chead{\small{济南大学毕业设计}\fontsize{2pt}{7pt}\selectfont{\\ \quad}}
 
-\renewcommand\headrulewidth{1.6pt}
+\renewcommand\headrulewidth{1.6pt} % 页眉页脚线
 \renewcommand\footrulewidth{1.6pt}
 
-\newcommand{\setfancylength}{
+\newcommand{\setfancylength}{ % 内容和页眉页脚边距
 	\setlength{\voffset}{3mm}
 	\setlength{\headheight}{7mm}
 	\setlength{\headsep}{5mm}
 	\setlength{\textheight}{245mm}
-	%\setlength{\footsep}{3mm}
 	\setlength{\footskip}{5mm}
 }
 
@@ -58,7 +67,7 @@
 	\setlength{\footskip}{0mm}
 }
 
-\RequirePackage{titletoc}
+\RequirePackage{titletoc} % 目录格式
 \titlecontents{section}
 	[1em]
 	{\normalsize\vspace{0em}}
@@ -78,9 +87,9 @@
 	{\hspace*{0em}}
 	{~\titlerule*[0.4pc]{.}~\contentspage}
 
-\renewcommand{\contentsname}{\begin{spacing}{1.2}\small{\quad\\ \quad\\ }\large{目\qquad 录\\}\end{spacing}}
+\renewcommand{\contentsname}{\begin{spacing}{1.2}\small{\quad\\ \quad\\ }\large{目\qquad 录\\}\end{spacing}} % 目录标题
 
-\ctexset{
+\ctexset{ % 全局章节标题及参考文献标题
 	section/aftername = {\enspace},
 	subsection/aftername = {\enspace},
 	subsubsection/aftername = {\enspace},
@@ -88,40 +97,40 @@
 }
 
 
-\fancypagestyle{ujnabstract} % 定义中文摘要格式
+\fancypagestyle{ujnabstract} % 中文摘要格式
 {
 	\ctexset{
-		section/format = {\large\heiti\centering},
+		section/format = {\large\centering\heiti},
 		section/beforeskip = {2em},
 		section/afterskip = {21pt}
 	}
-	\pagenumbering{Roman} % 罗马数字页码
-	\fancyfoot[C]{\fontsize{2pt}{7pt}\selectfont{\\ \quad}\small{--\enspace\thepage{}\enspace--}} % 页码居中左右两杠
+	\pagenumbering{Roman}
+	\fancyfoot[C]{\fontsize{2pt}{7pt}\selectfont{\quad \\ \quad}\small{--\enspace\thepage{}\enspace--}}
 
 	\newcommand\cnkeywords[1]{{\\ \quad\small{\textbf{\\ 关键词：}}} ##1}
 }
 
-\fancypagestyle{ujnabstract*} % 定义英文摘要格式
+\fancypagestyle{ujnabstract*} % 英文摘要格式
 {
 	\ctexset{
 		section/format = {\zihao{3}\centering\bfseries},
 		section/beforeskip = {1.5em},
 		section/afterskip = {21pt}
-	} % 标题格式
-	\fancyfoot[C]{\fontsize{2pt}{7pt}\selectfont{\\ \quad}\small{--\enspace\thepage{}\enspace--}} % 页码居中左右两杠
+	}
+	\fancyfoot[C]{\fontsize{2pt}{7pt}\selectfont{\quad \\ \quad}\small{--\enspace\thepage{}\enspace--}}
 
 	\newcommand\enkeywords[1]{\quad \\\small{\bfseries{Key words：}} ##1}
 }
 
-\fancypagestyle{ujncontent} % 定义目录格式
+\fancypagestyle{ujncontent} % 目录格式
 {
-	\fancyfoot{} % 清除页脚
+	\fancyfoot{}
 	\ctexset{
 		section/nameformat = {\large\heiti\centering}
-	} % 标题格式
+	}
 }
 
-\fancypagestyle{ujnbody} % 定义正文格式
+\fancypagestyle{ujnbody} % 正文格式
 {
 	\ctexset{
 		section/format += {
@@ -142,19 +151,20 @@
 		subsubsection/numberformat = {\normalsize\bfseries},
 		subsubsection/beforeskip = 0.5em,
 		subsubsection/afterskip = 0.5em
-	} % 标题格式
-	\pagenumbering{arabic} % 数字页码
-	\fancyfoot[C]{\small{--\enspace\thepage{}\enspace--}} % 页码居中左右两杠
+	}
+	\pagenumbering{arabic}
+	\fancyfoot[C]{\small{--\enspace\thepage{}\enspace--}}
 }
 
-\fancypagestyle{ujnothers}{}
+\fancypagestyle{ujnothers}{} % 留空
 
-\fancypagestyle{ujntranslation}
+\fancypagestyle{ujntranslation} % 外文资料翻译格式
 {
 	\setcounter{page}{1}
 	\chead{\small{济南大学毕业设计外文资料翻译}\fontsize{2pt}{7pt}\selectfont{\\ \quad}}
 }
 
+% 各类新环境，主要是应用环境前取消配置目录检索项的能力
 \newenvironment{ujnabstract}{\ctexset{section/numbering = false}\section*{\quad\\}}{}
 \newenvironment{ujnabstract*}{\ctexset{section/numbering = false}\small{\quad\\}}{}
 \newenvironment{ujnbody}{\ctexset{section/numbering = true}}{}
@@ -163,14 +173,11 @@
 \newenvironment{ujnthanks}{\ctexset{section/numbering = false}}{}
 \newenvironment{ujnappendix}{\ctexset{section/numbering = false}}{}
 
-
-
-
+% 外文资料翻译环境
 \newenvironment{trans}{}{}
 \newenvironment{transabst}{
 	\setlength{\parskip}{13pt}
 }{}
-
 
 \newcommand{\transource}[4]{
 	\begin{spacing}{1.25}
@@ -184,29 +191,29 @@
 }
 \newcommand{\transauther}[1]{
 	\begin{trans}\centering
-		\songti{\large{\quad\\}\normalsize{#1\\}}
+		{\large{\quad\\}\normalsize{#1\\}}
 	\end{trans}
 }
 
 \newcommand{\transinstitution}[1]{
 	\begin{trans}\centering
-		\songti{\small{#1\\}\tiny{\quad\\}}
+		{\small{#1\\}\tiny{\quad\\}}
 	\end{trans}
 }
 
 \newcommand{\transabstract}[2]{
 	\begin{transabst}\raggedright
-		\fontsize{10.5bp}{15pt}\selectfont{\heiti{摘\quad 要\quad }\songti{#1\\}
-		{\heiti{关键词\quad }\songti{#2\\}}}
+		\fontsize{10.5bp}{15pt}\selectfont{\heiti{摘\quad 要\quad }{#1\\}
+		{\heiti{关键词\quad }{#2\\}}}
 	\end{transabst}
 	{\fontsize{2bp}{0pt}\selectfont{\quad\\}}
 }
 
 \newcommand{\transbody}{
 	\setcounter{section}{0}
-	\renewcommand{\section}{\@startsection{section}{1}{0bp}{15pt}{15pt}{\heiti\zihao{4}}}
-	\renewcommand{\subsection}{\@startsection{subsection}{2}{0bp}{15pt}{15pt}{\heiti\normalsize}}
-	\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0bp}{6pt}{6pt}{\heiti\normalsize}}
+	\renewcommand{\section}{\@startsection{section}{1}{0bp}{15pt}{15pt}{\zihao{4}\heiti}}
+	\renewcommand{\subsection}{\@startsection{subsection}{2}{0bp}{15pt}{15pt}{\normalsize\heiti}}
+	\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0bp}{6pt}{6pt}{\normalsize\heiti}}
 
 	\ctexset{
 		section/aftername = {\quad},
