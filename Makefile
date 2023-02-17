@@ -1,13 +1,17 @@
-build_dir := build/chapter/ch2-basic
+build_dir := build
 
-all:
-	$(shell if [ ! -e $(build_dir) ]; then mkdir -p $(build_dir); fi)
-	xalatex -output-directory=build -interaction=nonstopmode -file-line-error main.tex
-	biber build/main.tex
-	xalatex -output-directory=build -interaction=nonstopmode -file-line-error main.tex
-	xalatex -output-directory=build -interaction=nonstopmode -file-line-error main.tex
+main:
+	$(shell if [ ! -e $(build_dir)/main ]; then mkdir -p $(build_dir)/main/chapter; fi)
+	xelatex -output-directory=build/main -interaction=nonstopmode -file-line-error main.tex
+	bibtex build/main/main
+	xelatex -output-directory=build/main -interaction=nonstopmode -file-line-error main.tex
+	xelatex -output-directory=build/main -interaction=nonstopmode -file-line-error main.tex
+
+trans:
+	$(shell if [ ! -e $(build_dir)/trans ]; then mkdir -p $(build_dir)/trans; fi)
+	xelatex -output-directory=build/trans -interaction=nonstopmode -file-line-error trans.tex
 
 clean:
 	rm -rf build
 
-.PHONY: all clean
+.PHONY: clean
