@@ -14,7 +14,7 @@
             "name": "xelatex",
             "command": "xelatex",
             "args": [
-                "-output-directory=build",
+                "-output-directory=build/%DOCFILE%",
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
@@ -25,7 +25,7 @@
             "name": "bibtex",
             "command": "bibtex",
             "args": [
-                "build/%DOCFILE%"
+                "build/%DOCFILE%/%DOCFILE%"
             ]
         }
     ],
@@ -53,7 +53,6 @@
         },
     ],
     "latex-workshop.latex.clean.fileTypes": [               // define clean file types
-        "chapter/ch2-basic/*.aux",
         "*.aux",
         "*.bbl",
         "*.blg",
