@@ -26,7 +26,7 @@
 
 编译完后可以看到 `build` 目录下生成了`main`和`trans`两个目录，目录内的 PDF 就是我们的论文。若不做进一步的开发则其余文件不必关心。
 
-接下来参照如下的项目结构和模板中的注释，就可以开始整活啦～
+接下来参照下文中项目结构和模板中的注释，相应编译论文正文或外文翻译，根据自身需要注释或解注对应的文档部分，就可以开始整活啦～
 
 ### 字体说明
 
@@ -41,24 +41,22 @@
 ``` text
 .vscode/                - VSCode 配置
 build/                  - 编译产物，一般只需关心生成的 PDF
-chapter/                - 章节文件，主要修改这个
-    ch2-basic/
-        abstract-cn.tex     - 中文摘要
-        abstract-en.tex     - 英文摘要
-        ...
-        thanks.tex          - 致谢
-    ch8-text-cn.tex         - 外文翻译的译文
+chapter/                - 论文正文章节文件，主要修改这个
+    abstract-cn.tex     - 中文摘要
+    abstract-en.tex     - 英文摘要
+    ...
+    thanks.tex          - 致谢
 docs/                   - 要插入的文档，看下面说明
 figures/                - 图片目录
-main.tex                - 主文件
-translation.tex         - 翻译文件
-others.tex              - 其他文件
+fonts/                  - 内嵌字体目录
+main.tex                - 论文正文主文件
+trans.tex               - 外文翻译文件
 ref.bib                 - 参考文献库
 Makefile                - Makefile
 run.py                  - Python 编译脚本
 ```
 
-记得把 `docs` 路径下出现的主要是填一些个人信息的样例文档换成你的，记得不能再整活。
+把 `docs` 路径下出现的主要是填一些个人信息的样例文档换成你的，记得不能再整活。
 
 这些文档，有的还要留空给老师填写评语，所以在 Word 中填好生成 PDF 再替换是更高效的做法。
 
