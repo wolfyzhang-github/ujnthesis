@@ -1,4 +1,5 @@
 build/main/*
 build/trans/*
 !build/main/main.pdf
+!build/main/chapter/.gitkeep
 !build/trans/trans.pdf
