@@ -23,10 +23,10 @@
 \g@addto@macro{\UrlBreaks}{\UrlDigits}
 
 \RequirePackage{fontspec, xeCJK} % 字体
-\setCJKmainfont[Path=fonts/,BoldFont={SimHei.ttf},ItalicFont={SimKai.ttf}]{SimSun.ttf} % 衬线
-\setCJKsansfont[Path=fonts/,BoldFont={SimHei.ttf},ItalicFont={SimKai.ttf}]{SimSun.ttf} % 无衬线
-\setmainfont{Times New Roman}[BoldFont = *-Bold]
-\setmonofont{Times New Roman}
+\setCJKmainfont[Path=fonts/,BoldFont={SimHei.ttf}]{SimSun.ttf} % 衬线
+\setCJKsansfont[Path=fonts/,BoldFont={SimHei.ttf}]{SimSun.ttf} % 无衬线
+\setmainfont[Path=fonts/,BoldFont={*-Bold.ttf}]{Times-New-Roman.ttf}
+\setmonofont[Path=fonts/,BoldFont={*-Bold.ttf}]{Times-New-Roman.ttf}
 \newcommand{\heiti}{\textbf}
 
 \lstset{ % 代码框
