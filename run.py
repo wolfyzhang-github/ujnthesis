@@ -7,9 +7,9 @@ def mkdir(path):
 	folder = os.path.exists(path)
 	if not folder:
 		os.makedirs(path)
-		print(path + "do not exist, will creat one.")
+		print(path + " do not exist, will creat one.")
 	else:
-		print(path + "already exists, use it.")
+		print(path + " already exists, use it.")
 
 def xelatex_compile(doc):
     subprocess.call(["xelatex", "-output-directory=build\\" + doc, "-interaction=nonstopmode", "-file-line-error", doc + ".tex"])
