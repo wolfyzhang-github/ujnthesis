@@ -6,7 +6,9 @@
 
 ## 使用方法
 
-若不想折腾本地环境，可以先试试看在线的 Overleaf，编译前记得选择 xelatex 引擎就好。以下是本地环境的配置要求。
+若不想折腾本地环境，可以先试试看在线的 Overleaf，编译前记得选择 xelatex 引擎就好，[这是 Overleaf 模板链接](https://www.overleaf.com/latex/templates/ujnthesis/kywhqyrtqxgg)
+
+**以下是本地环境的配置要求。**
 
 开始整活前，请先确保已经安装如下环境并能在命令行中运行（就是配个 PATH），否则我们将会浪费不必要的生命在毫无意义的环境配置问题上：
 
