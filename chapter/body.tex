@@ -109,6 +109,12 @@
         \caption{这是图片}
         \label{fig:2}
     \end{figure}
+    \begin{figure}[htbp]
+        \centering
+        \includesvg[scale=1]{figures/latex-project-logo.svg}
+        \caption{这是SVG图片（授权CC BY 4.0）}
+        \label{fig:latex-project-logo}
+      \end{figure}
     \subsubsection{表格}
     \begin{table}[!htbp]
         \centering
@@ -123,6 +129,21 @@
             \bottomrule
         \end{tabular}
         \label{tab:1}
+    \end{table}
+    % https://tex.stackexchange.com/questions/313625/latex-error-illegal-character-in-array-arg-table-parameter-mwidth
+    \begin{table}[!htbp]
+        \centering
+        \caption{这是可限制列宽的表格}
+        \begin{tabular}{c m{5cm}}
+            \toprule
+            类型 & 摘要 \\
+            \midrule
+            SHA256 & 7c240be293a091f20c202ac8e252d27b563cb78589ab7b340318234663d0dcf7 \\
+            SHA512 & cb5cf3e1eb5e639a506a19a6585beae6dc4da57489ce296ab2272780b7317c13e6a76ca6c2bba94d0f475ca61ab4dff4b307636e2b1eb368b9508e37136e3fd8 \\
+            单元格换行测试 & 李二 \newline 165 \newline 52 \\
+            \bottomrule
+        \end{tabular}
+        \label{tab:2}
     \end{table}
     \subsection{交叉引用}\label{sec:1}
     \subsubsection{参考文献引用}\label{sec:2}
