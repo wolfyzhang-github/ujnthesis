@@ -3,6 +3,7 @@
 \RequirePackage[dvipsnames]{xcolor} % 额外的颜色
 \RequirePackage{pdfpages, setspace, graphicx, dashrule, booktabs, listings, setspace, amsmath, hyperref, tabularx} % 常用宏包
 \usepackage[inkscapelatex=false]{svg} % svg
+\usepackage{float} % 图片强制就地浮动 用法: \begin{figure}[H] \end{figure}
 \hypersetup{ % 超链接
 	hidelinks,
 	colorlinks=true,
@@ -68,7 +69,7 @@
 \newcommand{\setfancylength}{ % 内容和页眉页脚边距
 	\setlength{\voffset}{3mm}
 	\setlength{\headheight}{7mm}
-	\setlength{\headsep}{5mm}
+	\setlength{\headsep}{6mm}
 	\setlength{\textheight}{245mm}
 	\setlength{\footskip}{5mm}
 }
@@ -155,7 +156,7 @@
 		section/titleformat = {\large\heiti},
 		section/numberformat = {\large\bfseries},
 		section/beforeskip = 5pt,
-		section/afterskip = 1.5em,
+		section/afterskip = 2.5em,
 		subsection/titleformat = {\zihao{4}\heiti},
 		subsection/numberformat = {\zihao{4}\bfseries},
 		subsection/beforeskip = 0.5em,
